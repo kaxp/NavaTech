@@ -5,13 +5,17 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:tech_nava/config/themes/app_theme.dart';
 import 'package:tech_nava/constants/widget_keys.dart';
 import 'package:tech_nava/modules/app/base_app_module.dart';
+import 'package:tech_nava/modules/app/db/hive_initializer.dart';
 
 void main() async {
-  // initialize widget binding
+  // Initialize widget binding
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialise localization
+  // Initialize localization
   await EasyLocalization.ensureInitialized();
+
+  // Initialize hive for local caching
+  await HiveInitializer.initHive();
 
   runApp(
     ModularApp(
