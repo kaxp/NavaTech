@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:tech_nava/modules/home/models/events_response.dart';
+import 'package:tech_nava/modules/home/models/albums_response.dart';
 import 'package:tech_nava/modules/home/repositories/home_repo.dart';
 import 'package:tech_nava/utils/dio_error_extension.dart';
 

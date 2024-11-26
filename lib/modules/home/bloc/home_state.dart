@@ -5,7 +5,7 @@ abstract class HomeState extends Equatable {
     this.albums = const [],
   });
 
-  final List<AlbumsData> albums;
+  final List<AlbumsResponse> albums;
 
   @override
   List<Object?> get props => [albums];
@@ -19,14 +19,14 @@ class HomeEmpty extends HomeState {}
 
 class HomeLoaded extends HomeState {
   const HomeLoaded({
-    required List<AlbumsData> albums,
+    required List<AlbumsResponse> albums,
   }) : super(albums: albums);
 }
 
 class HomeError extends HomeState {
   const HomeError({
     required this.errorMessage,
-    required List<AlbumsData> albums,
+    required List<AlbumsResponse> albums,
   }) : super(albums: albums);
 
   final String errorMessage;

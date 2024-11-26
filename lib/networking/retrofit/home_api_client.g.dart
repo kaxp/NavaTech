@@ -19,13 +19,13 @@ class _HomeApiClient implements HomeApiClient {
   String? baseUrl;
 
   @override
-  Future<List<AlbumsData>> getAlbumsData() async {
+  Future<List<AlbumsResponse>> getAlbumsData() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<List<dynamic>>(_setStreamType<List<AlbumsData>>(Options(
+        .fetch<List<dynamic>>(_setStreamType<List<AlbumsResponse>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -38,7 +38,7 @@ class _HomeApiClient implements HomeApiClient {
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
-        .map((dynamic i) => AlbumsData.fromJson(i as Map<String, dynamic>))
+        .map((dynamic i) => AlbumsResponse.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }
