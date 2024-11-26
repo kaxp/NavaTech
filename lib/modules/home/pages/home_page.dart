@@ -4,6 +4,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:tech_nava/constants/app_strings.dart';
 import 'package:tech_nava/constants/spacing_constants.dart';
 import 'package:tech_nava/modules/home/bloc/home_bloc.dart';
+import 'package:tech_nava/modules/home/widgets/albums_list_item.dart';
+import 'package:tech_nava/widgets/empty_state_view.dart';
 import 'package:tech_nava/widgets/loading_overlay.dart';
 
 class HomePage extends StatefulWidget {
@@ -27,7 +29,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Container(
-          transform: Matrix4.translationValues(-kSpacingXSmall, 0, 0),
+          transform: Matrix4.translationValues(
+              -kSpacingXSmall, kSpacingZero, kSpacingZero),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -56,21 +59,39 @@ class _HomePageState extends State<HomePage> {
         },
         builder: (context, state) {
           if (state is HomeError) {
-            // TODO(kaxp): Handle error UI
+            EmptyStateView(errorMsg: AppStrings.noDataFound);
           } else if (state is HomeEmpty) {
-            // TODO(kaxp): Show empty data
+            EmptyStateView(errorMsg: AppStrings.noResultFound);
           }
 
           return LoadingOverlay(
             isLoading: state is HomeInitial || state is HomeLoading,
-            child: ListView(
-              shrinkWrap: true,
-              physics: const ClampingScrollPhysics(),
-              children: const [
-                // TODO(kaxp): Create UI
-                Text("Some date")
-              ],
-            ),
+            child: state.albums.isNotEmpty
+                ? ListView.builder(
+                    itemCount: null, // using null to make infinite scroll
+                    itemBuilder: (context, index) {
+                      final actualIndex = index % state.albums.length;
+                      final album = state.albums[actualIndex];
+
+                      return Column(
+                        children: [
+                          AlbumsListItem(
+                            albums: album,
+                          ),
+                          const SizedBox(
+                            height: kSpacingLarge,
+                          ),
+                          Divider(
+                            height: kSpacingZero,
+                            color: Colors.grey[400],
+                          ),
+                        ],
+                      );
+                    },
+                  )
+                : EmptyStateView(
+                    errorMsg: AppStrings.noResultFound,
+                  ),
           );
         },
       ),
