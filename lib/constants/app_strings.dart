@@ -5,6 +5,7 @@ class AppStrings {
   static String networkRequestCanceled = 'networkRequestCanceled'.tr();
   static String invalidClientIdError = 'invalidClientIdError'.tr();
   static String unknownError = 'unknownError'.tr();
+  static String noResultFound = 'noResultFound'.tr();
   static String noDataFound = 'noDataFound'.tr();
   static String back = 'back'.tr();
   static String retry = 'retry'.tr();

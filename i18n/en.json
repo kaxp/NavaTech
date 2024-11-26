@@ -3,8 +3,9 @@
   "networkRequestCanceled": "Request cancelled",
   "invalidClientIdError": "Client Id is invalid, please check and try again",
   "unknownError": "Uh-oh! Looks like a hiccup in the system. Please try again later.",
+  "noResultFound": "Looks like we're exploring uncharted territory! No results found. Try a new quest?",
   "noDataFound": "Data transmission lost!\nCheck your internet connection and try again.",
   "back": "Back",
   "retry": "Retry",
-  "appName": "NaviTech"
+  "appName": "NavaTech"
 }
