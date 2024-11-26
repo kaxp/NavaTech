@@ -5,5 +5,6 @@
   "unknownError": "Uh-oh! Looks like a hiccup in the system. Please try again later.",
   "noDataFound": "Data transmission lost!\nCheck your internet connection and try again.",
   "back": "Back",
-  "retry": "Retry"
+  "retry": "Retry",
+  "appName": "NaviTech"
 }

@@ -8,4 +8,5 @@ class AppStrings {
   static String noDataFound = 'noDataFound'.tr();
   static String back = 'back'.tr();
   static String retry = 'retry'.tr();
+  static String appName = 'appName'.tr();
 }
