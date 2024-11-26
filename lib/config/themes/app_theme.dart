@@ -66,6 +66,7 @@ mixin AppTheme {
     ),
     snackBarTheme: const SnackBarThemeData(
       backgroundColor: Colors.black,
+      contentTextStyle: TextStyle(color: Colors.white),
     ),
   );
 }
