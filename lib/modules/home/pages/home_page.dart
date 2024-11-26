@@ -37,7 +37,10 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Container(
           transform: Matrix4.translationValues(
-              -kSpacingXSmall, kSpacingZero, kSpacingZero),
+            -kSpacingXSmall,
+            kSpacingZero,
+            kSpacingZero,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -46,7 +49,9 @@ class _HomePageState extends State<HomePage> {
               ),
               Text(
                 AppStrings.appName,
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
               ),
             ],
           ),
