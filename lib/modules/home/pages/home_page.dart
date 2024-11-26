@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:tech_nava/constants/app_strings.dart';
 import 'package:tech_nava/constants/spacing_constants.dart';
 import 'package:tech_nava/modules/home/bloc/home_bloc.dart';
@@ -22,6 +23,12 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _homeBloc.fetchAlbums();
+  }
+
+  @override
+  void dispose() {
+    Hive.close();
+    super.dispose();
   }
 
   @override
