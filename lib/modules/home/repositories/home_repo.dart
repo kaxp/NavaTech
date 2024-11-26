@@ -7,4 +7,8 @@ class HomeRepo {
   Future<List<AlbumsResponse>> fetchAlbumsData() async {
     return _homeApiClient.getAlbumsData();
   }
+
+  Future<List<ImageData>> fetchAlbumImages({required int albumId}) async {
+    return _homeApiClient.getAlbumImages(albumId: albumId);
+  }
 }

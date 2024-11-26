@@ -25,4 +25,9 @@ abstract class HomeApiClient {
 
   @GET('/albums')
   Future<List<AlbumsResponse>> getAlbumsData();
+
+  @GET('/photos')
+  Future<List<ImageData>> getAlbumImages({
+    @Query('albumId') required int albumId,
+  });
 }
